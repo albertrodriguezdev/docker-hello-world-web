@@ -1,0 +1,30 @@
+name: Auto Tag
+
+
+on:
+  workflow_run:
+    workflows: [ "CI" ]
+    types:
+      - completed
+
+jobs:
+  auto-tag:
+    name: Auto tag on merge to main
+    runs-on: ubuntu-latest
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
+    
+    steps:
+      - name: Checkout repository (full history)
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Create tag (major bump)
+        id: tagger
+        uses: anothrNick/github-tag-action@1.75.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: major

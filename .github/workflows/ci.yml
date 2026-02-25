@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build & Test Docker image
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Build Docker image
+        run: docker build -t hello-world-web:test .
+
+      - name: Run container
+        run: |
+          docker run -d \
+            -p 8080:8080 \
+            --name test-container \
+            hello-world-web:test
+
+      - name: Wait for application to be ready
+        run: |
+          echo "Waiting for application..."
+          for i in {1..30}; do
+            if curl -fs http://localhost:8080 > /dev/null; then
+              echo "Application is ready."
+              exit 0
+            fi
+            sleep 2
+          done
+
+          echo "Application failed to start."
+          docker logs test-container
+          exit 1
+
+      - name: Verify response
+        run: |
+          curl -fsS http://localhost:8080 | grep -q "Hello World from Docker! 🚀"
+
+      - name: Cleanup container
+        if: always()
+        run: docker rm -f test-container
