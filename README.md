@@ -1,9 +1,9 @@
 # Hello World Web 👋
 
-[![Source on GitHub](https://img.shields.io/badge/source-GitHub-black?logo=github)](https://github.com/albertrodriguezdev/hello-world-web) [![GitHub Repo stars](https://img.shields.io/github/stars/albertrodriguezdev/hello-world-web)](https://github.com/albertrodriguezdev/hello-world-web)
+[![Source on GitHub](https://img.shields.io/badge/source-GitHub-black?logo=github)](https://github.com/albertrodriguezdev/docker-hello-world-web) [![GitHub Repo stars](https://img.shields.io/github/stars/albertrodriguezdev/docker-hello-world-web)](https://github.com/albertrodriguezdev/docker-hello-world-web)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/albertrodriguezdev/hello-world-web/blob/main/LICENSE) [![Docker Pulls](https://img.shields.io/docker/pulls/albertrodriguezdev/hello-world-web)](https://hub.docker.com/r/albertrodriguezdev/hello-world-web) [![Docker Image Size](https://img.shields.io/docker/image-size/albertrodriguezdev/hello-world-web/latest)](https://hub.docker.com/r/albertrodriguezdev/hello-world-web)
 
-🐙 **GitHub Repository:** [albertrodriguezdev/hello-world-web](https://github.com/albertrodriguezdev/hello-world-web)  
+🐙 **GitHub Repository:** [albertrodriguezdev/hello-world-web](https://github.com/albertrodriguezdev/docker-hello-world-web)  
 🐳 **Docker Hub Image:** [albertrodriguezdev/hello-world-web](https://hub.docker.com/r/albertrodriguezdev/hello-world-web)
 
 ---
